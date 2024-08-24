@@ -1,0 +1,19 @@
+{% extends 'base_create.html' %}
+
+{% block title %}
+    Create Track
+{% endblock %}
+
+{% block content %}
+    <h1>Create a New Track</h1> <!-- Optional: Debugging content -->
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="track_name" class="form-label">Track Name:</label>
+            <input type="text" class="form-control" id="track_name" name="track_name" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

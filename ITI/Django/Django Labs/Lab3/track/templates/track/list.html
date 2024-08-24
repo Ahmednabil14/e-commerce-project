@@ -1,0 +1,33 @@
+{% extends 'base_list.html' %}
+
+{% block 'titlt' %}
+    List of Tracks
+{% endblock %}
+
+
+{% block 'header' %}
+    List of Tracks
+{% endblock %}
+
+{% block 'table_headers' %}
+    <th>ID</th>
+    <th>Track Name</th>
+    <th>Options</th>
+{% endblock %}
+{% block 'table_body' %}
+    {% for track in tracks %}
+    <tr>
+        <td style="color:red">{{track.id}}</td>
+        <td style="color:red">{{track.track_name}}</td>
+        <td>
+            <a href="{%url 'update_track' track.id%}">Update</a>
+            <a href="{%url 'delete_track' track.id%}">Delete</a>
+            <a href="{%url 'show_details_track' track.id%}">Show Details</a>
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+{% block 'create_button' %}
+<a href="{%url 'create_track'%}" class="btn btn-primary">Add Track</a>
+{% endblock %}

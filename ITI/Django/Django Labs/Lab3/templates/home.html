@@ -1,0 +1,17 @@
+{% extends 'base_create.html' %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Track Management System</h1>
+    
+    <ul>
+        <li><a href="{% url 'list_track' %}">View All Tracks</a></li>
+        <li><a href="{% url 'create_track' %}">Create a New Track</a></li>
+        <li><a href="{% url 'list_trainee' %}">View All Trainees</a></li>
+        <li><a href="{% url 'create_trainee' %}">Create a New Trainee</a></li>
+        <!-- Add more links as needed -->
+    </ul>
+{% endblock %}

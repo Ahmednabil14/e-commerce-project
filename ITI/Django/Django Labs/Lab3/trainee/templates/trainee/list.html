@@ -1,0 +1,48 @@
+{% extends 'base_list.html' %}
+
+{% block 'titlt' %}
+    List of Trainees
+{% endblock %}
+
+
+{% block 'header' %}
+    List of Trainees
+{% endblock %}
+
+{% block 'table_headers' %}
+    <th>id</th>
+    <th>first name</th>
+    <th>last name</th>
+    <th>gender</th>
+    <th>birth date</th>
+    <th>address</th>
+    <th>phone number</th>
+    <th>email</th>
+    <th>track</th>
+    <th>options</th>
+{% endblock %}
+{% block 'table_body' %}
+    {% for trainee in trainee_list %}
+    <tr>
+        <td style="color:red">{{trainee.trainee_id}}</td>
+        <td style="color:red">{{trainee.first_name}}</td>
+        <td style="color:red">{{trainee.last_name}}</td>
+        <td style="color:red">{{trainee.gender}}</td>
+        <td style="color:red">{{trainee.birth_data}}</td>
+        <td style="color:red">{{trainee.address}}</td>
+        <td style="color:red">{{trainee.phone}}</td>
+        <td style="color:red">{{trainee.email}}</td>
+        <td style="color:red">{{trainee.trackobj.track_name}}</td>
+        <td>
+            <a href="{%url 'update_trainee' trainee.trainee_id%}">Update</a>
+            <a href="{%url 'delete_trainee' trainee.trainee_id%}">Delete</a>
+            <a href="{%url 'show_details' trainee.trainee_id%}">Show Details</a>
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock %}
+
+{% block 'create_button' %}
+<a href="{%url 'create_trainee'%}" class="btn btn-primary">Add Trainee</a>
+<a href="{%url 'create_trainee_form' %}" class="btn btn-primary">Add Form Trainee</a>
+{% endblock %}
